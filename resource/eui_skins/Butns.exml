@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="Butns" width="400" height="300" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" states="btn_up,btn_down" >
+	<w:Config id="16c74c56aef" scale9Grid="211,210,558,584"/>
+	<e:Image source="butns_down_png" includeIn="btn_down" x="0" y="-42" width="400" height="400" scale9Grid="291,169,433,676" fillMode="clip"/>
+	<e:Image source="butns_png" x="0" y="-34" width="400" height="400" y.btn_down="-28" includeIn="btn_up" fillMode="clip" scale9Grid="261,261,453,478"/>
+</e:Skin>

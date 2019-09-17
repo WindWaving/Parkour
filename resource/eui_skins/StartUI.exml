@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="StartUI" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing">
+	<e:Image source="StartUI_jpg" x="217.76" y="110.19" anchorOffsetX="217.76" anchorOffsetY="110.19" width="1920" height="1080"/>
+	<e:Image id="btnStart" source="startBtn_png" x="228.49" y="876.39" anchorOffsetX="228.49" anchorOffsetY="60.06" width="560.67" height="197"/>
+</e:Skin>

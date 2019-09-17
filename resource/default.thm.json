@@ -1,0 +1,11 @@
+{
+	"skins": {},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/Butns.exml",
+		"resource/eui_skins/EndGame.exml",
+		"resource/eui_skins/ProgressBarSkin.exml",
+		"resource/eui_skins/StartUI.exml"
+	],
+	"path": "resource/default.thm.json"
+}

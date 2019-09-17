@@ -1,0 +1,150 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,coins_two_json,loadingbk_png,money_png,money_small_png,monster_1_png,monster_2_png,monster_3_png,sky_png,stone_png,theElf_ske_json,theElf_tex_json,theElf_tex_png,tree1_png,tree2_png,tree3_png,tree4_jpg,background_png,background_big_png,bkground_jpg,coins_four_json,coins_one_json,coins_three_json,StartUI_jpg,startBtn_png,EndGame_jpg,butns_png,butns_down_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "coins_two_json",
+			"type": "json",
+			"url": "assets/coins_two.json"
+		},
+		{
+			"name": "loadingbk_png",
+			"type": "image",
+			"url": "assets/loadingbk.png"
+		},
+		{
+			"name": "money_png",
+			"type": "image",
+			"url": "assets/money.png"
+		},
+		{
+			"name": "money_small_png",
+			"type": "image",
+			"url": "assets/money_small.png"
+		},
+		{
+			"name": "monster_1_png",
+			"type": "image",
+			"url": "assets/monster_1.png"
+		},
+		{
+			"name": "monster_2_png",
+			"type": "image",
+			"url": "assets/monster_2.png"
+		},
+		{
+			"name": "monster_3_png",
+			"type": "image",
+			"url": "assets/monster_3.png"
+		},
+		{
+			"name": "sky_png",
+			"type": "image",
+			"url": "assets/sky.png"
+		},
+		{
+			"name": "stone_png",
+			"type": "image",
+			"url": "assets/stone.png"
+		},
+		{
+			"name": "theElf_ske_json",
+			"type": "json",
+			"url": "assets/theElf_ske.json"
+		},
+		{
+			"name": "theElf_tex_json",
+			"type": "json",
+			"url": "assets/theElf_tex.json"
+		},
+		{
+			"name": "theElf_tex_png",
+			"type": "image",
+			"url": "assets/theElf_tex.png"
+		},
+		{
+			"name": "tree1_png",
+			"type": "image",
+			"url": "assets/tree1.png"
+		},
+		{
+			"name": "tree2_png",
+			"type": "image",
+			"url": "assets/tree2.png"
+		},
+		{
+			"name": "tree3_png",
+			"type": "image",
+			"url": "assets/tree3.png"
+		},
+		{
+			"name": "tree4_jpg",
+			"type": "image",
+			"url": "assets/tree4.jpg"
+		},
+		{
+			"name": "background_png",
+			"type": "image",
+			"url": "assets/background.png"
+		},
+		{
+			"name": "background_big_png",
+			"type": "image",
+			"url": "assets/background_big.png"
+		},
+		{
+			"name": "bkground_jpg",
+			"type": "image",
+			"url": "assets/bkground.jpg"
+		},
+		{
+			"name": "coins_four_json",
+			"type": "json",
+			"url": "assets/coins_four.json"
+		},
+		{
+			"name": "coins_one_json",
+			"type": "json",
+			"url": "assets/coins_one.json"
+		},
+		{
+			"name": "coins_three_json",
+			"type": "json",
+			"url": "assets/coins_three.json"
+		},
+		{
+			"name": "StartUI_jpg",
+			"type": "image",
+			"url": "assets/StartUI.jpg"
+		},
+		{
+			"name": "startBtn_png",
+			"type": "image",
+			"url": "assets/startBtn.png"
+		},
+		{
+			"name": "EndGame_jpg",
+			"type": "image",
+			"url": "assets/EndGame.jpg"
+		},
+		{
+			"name": "butns_png",
+			"type": "image",
+			"url": "assets/butns.png"
+		},
+		{
+			"name": "butns_down_png",
+			"type": "image",
+			"url": "assets/butns_down.png"
+		}
+	]
+}
