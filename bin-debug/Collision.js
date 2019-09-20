@@ -18,6 +18,7 @@ var CollisionDetect = (function () {
             //     console.log(point.x,point.y,point.y + obj2.width);                
             return true;
         }
+        console.log(point.x, point.y);
         return false;
     };
     CollisionDetect.isCollision = function (obj1, obj2) {

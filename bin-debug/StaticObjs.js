@@ -43,7 +43,7 @@ var StaticObjs = (function (_super) {
                 }
                 else if (this.Arr[i].x > this.player.ar.x + this.player.ar.width || this.Arr[i].x + this.Arr[i].width < this.player.ar.x) {
                     if (StaticObjs.sobjFlag[i] == 1) {
-                        this.player.baseHeight = 900;
+                        this.player.baseHeight = 1030;
                         this.player.reRun();
                         StaticObjs.sobjFlag[i] = 0;
                     }
