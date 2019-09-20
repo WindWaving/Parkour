@@ -37,7 +37,7 @@ var Sceduler = (function (_super) {
         _this.addChild(Sceduler.Mons);
         Sceduler.objLists.push(Sceduler.bkG);
         Sceduler.objLists.push(Sceduler.bkObj);
-        Sceduler.objLists.push(Sceduler.Grd);
+        // Sceduler.objLists.push(Sceduler.Grd);
         Sceduler.objLists.push(Sceduler.Plyer);
         Sceduler.objLists.push(Sceduler.Sobjs);
         Sceduler.objLists.push(Sceduler.Cns);

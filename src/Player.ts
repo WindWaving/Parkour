@@ -16,18 +16,15 @@ class Player extends Sprites {
     }
     onInit() {
         //创建dragonbones动画
-        // var dragonbonesData = RES.getRes("theElf_ske_json");
-        // var textureData = RES.getRes("theElf_tex_json");
-        // var texture = RES.getRes("theElf_tex_png");
-        var dragonbonesData = RES.getRes("cat_3_ske_json");
-        var textureData = RES.getRes("cat_3_tex_json");
+        var dragonbonesData = RES.getRes("cat_label_ske_json");
+        var textureData = RES.getRes("cat_label_tex_json");
         var texture = RES.getRes("cat_3_tex_png");
         var dragonbonesFactory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
         dragonbonesFactory.parseDragonBonesData(dragonbonesData);
         dragonbonesFactory.parseTextureAtlasData(textureData, texture);
         this.ar = dragonbonesFactory.buildArmatureDisplay("cat");
         this.ar.x = 500;
-        this.ar.y = this.baseHeight-100;
+        this.ar.y = this.baseHeight;
         this.x = 0;
         this.y = 0;
         this.ar.scaleX = this.scaleW;
@@ -39,6 +36,7 @@ class Player extends Sprites {
 
         //播放动画
         this.ar.animation.play("run",0);
+        
         // this.ar.animation.play("run2_slow", 0);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJump, this);
         this.addEventListener(egret.Event.ENTER_FRAME, this.onMove, this);
@@ -72,7 +70,7 @@ class Player extends Sprites {
     }
 
     public reRun() {
-        this.ar.y = this.baseHeight-100;
+        this.ar.y = this.baseHeight;
         this.ar.animation.play("run", 0);
     }
     public stopAni() {

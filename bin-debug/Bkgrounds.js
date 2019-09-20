@@ -36,7 +36,6 @@ var Bkgrounds = (function (_super) {
                 bitmap.height = this.stage.stageHeight;
                 // console.log("adjust height",bitmap.height);
             }
-            console.log("init", bitmap.anchorOffsetX, bitmap.anchorOffsetY);
             this.bkgArr.push(bitmap);
             this.addChild(bitmap);
         }

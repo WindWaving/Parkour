@@ -18,6 +18,7 @@ var Player = (function (_super) {
         _this.tickNum = 5;
         _this.scaleH = 0.3;
         _this.scaleW = 0.3;
+        // this.baseHeight=1030;
         _this.scoreText = new egret.TextField();
         return _this;
     }
@@ -26,15 +27,15 @@ var Player = (function (_super) {
         // var dragonbonesData = RES.getRes("theElf_ske_json");
         // var textureData = RES.getRes("theElf_tex_json");
         // var texture = RES.getRes("theElf_tex_png");
-        var dragonbonesData = RES.getRes("cat_3_ske_json");
-        var textureData = RES.getRes("cat_3_tex_json");
+        var dragonbonesData = RES.getRes("cat_label_ske_json");
+        var textureData = RES.getRes("cat_label_tex_json");
         var texture = RES.getRes("cat_3_tex_png");
         var dragonbonesFactory = new dragonBones.EgretFactory();
         dragonbonesFactory.parseDragonBonesData(dragonbonesData);
         dragonbonesFactory.parseTextureAtlasData(textureData, texture);
         this.ar = dragonbonesFactory.buildArmatureDisplay("cat");
         this.ar.x = 500;
-        this.ar.y = this.baseHeight - 100;
+        this.ar.y = this.baseHeight;
         this.x = 0;
         this.y = 0;
         this.ar.scaleX = this.scaleW;
@@ -75,7 +76,7 @@ var Player = (function (_super) {
         this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);
     };
     Player.prototype.reRun = function () {
-        this.ar.y = this.baseHeight - 100;
+        this.ar.y = this.baseHeight;
         this.ar.animation.play("run", 0);
     };
     Player.prototype.stopAni = function () {

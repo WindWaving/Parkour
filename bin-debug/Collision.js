@@ -9,16 +9,15 @@ var CollisionDetect = (function () {
         var point = new egret.Point();
         point.x = obj2.x;
         point.y = obj2.y;
-        obj1.globalToLocal(point.x, point.y, point);
-        if (obj1.armature.containsPoint(point.x, point.y) || obj1.armature.containsPoint(point.x, point.y + obj2.height)) {
-            //     console.log(point.x,point.y,point.y + obj2.height);
+        var localpoint = obj1.globalToLocal(point.x, point.y);
+        if (obj1.armature.getSlot('躯干_boundingBox').containsPoint(localpoint.x, localpoint.y) || obj1.armature.containsPoint(localpoint.x, localpoint.y + obj2.height)) {
+            console.log(point.x, point.y, point.y + obj2.height, obj1.y, obj1.height);
             return true;
         }
-        if (obj1.armature.containsPoint(point.x + obj2.width, point.y) || obj1.armature.containsPoint(point.x + obj2.width, point.y + obj2.height)) {
+        if (obj1.armature.getSlot('躯干_boundingBox').containsPoint(localpoint.x + obj2.width, localpoint.y) || obj1.armature.containsPoint(localpoint.x + obj2.width, localpoint.y + obj2.height)) {
             //     console.log(point.x,point.y,point.y + obj2.width);                
             return true;
         }
-        console.log(point.x, point.y);
         return false;
     };
     CollisionDetect.isCollision = function (obj1, obj2) {

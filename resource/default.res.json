@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,coins_two_json,loadingbk_png,money_png,money_small_png,monster_1_png,monster_2_png,monster_3_png,sky_png,stone_png,theElf_ske_json,theElf_tex_json,theElf_tex_png,tree1_png,tree2_png,tree3_png,tree4_jpg,background_png,background_big_png,bkground_jpg,coins_four_json,coins_one_json,coins_three_json,StartUI_jpg,startBtn_png,EndGame_jpg,butns_png,butns_down_png,attract_coins_png,cat_3_tex_png,cat_3_ske_json,cat_3_tex_json,背景切图_png,house_png,house2_png,house3_png,house4_png,house5_png",
+			"keys": "description_json,coins_two_json,money_small_png,monster_1_png,monster_2_png,monster_3_png,stone_png,coins_four_json,coins_one_json,coins_three_json,StartUI_jpg,startBtn_png,EndGame_jpg,butns_png,butns_down_png,attract_coins_png,cat_3_tex_png,背景切图_png,house_png,house2_png,house3_png,house4_png,house5_png,猫的动画导入_3_tex_png,cat_label_ske_json,cat_label_tex_json",
 			"name": "preload"
 		}
 	],
@@ -15,16 +15,6 @@
 			"name": "coins_two_json",
 			"type": "json",
 			"url": "assets/coins_two.json"
-		},
-		{
-			"name": "loadingbk_png",
-			"type": "image",
-			"url": "assets/loadingbk.png"
-		},
-		{
-			"name": "money_png",
-			"type": "image",
-			"url": "assets/money.png"
 		},
 		{
 			"name": "money_small_png",
@@ -47,64 +37,9 @@
 			"url": "assets/monster_3.png"
 		},
 		{
-			"name": "sky_png",
-			"type": "image",
-			"url": "assets/sky.png"
-		},
-		{
 			"name": "stone_png",
 			"type": "image",
 			"url": "assets/stone.png"
-		},
-		{
-			"name": "theElf_ske_json",
-			"type": "json",
-			"url": "assets/theElf_ske.json"
-		},
-		{
-			"name": "theElf_tex_json",
-			"type": "json",
-			"url": "assets/theElf_tex.json"
-		},
-		{
-			"name": "theElf_tex_png",
-			"type": "image",
-			"url": "assets/theElf_tex.png"
-		},
-		{
-			"name": "tree1_png",
-			"type": "image",
-			"url": "assets/tree1.png"
-		},
-		{
-			"name": "tree2_png",
-			"type": "image",
-			"url": "assets/tree2.png"
-		},
-		{
-			"name": "tree3_png",
-			"type": "image",
-			"url": "assets/tree3.png"
-		},
-		{
-			"name": "tree4_jpg",
-			"type": "image",
-			"url": "assets/tree4.jpg"
-		},
-		{
-			"name": "background_png",
-			"type": "image",
-			"url": "assets/background.png"
-		},
-		{
-			"name": "background_big_png",
-			"type": "image",
-			"url": "assets/background_big.png"
-		},
-		{
-			"name": "bkground_jpg",
-			"type": "image",
-			"url": "assets/bkground.jpg"
 		},
 		{
 			"name": "coins_four_json",
@@ -157,16 +92,6 @@
 			"url": "assets/cat_3_tex.png"
 		},
 		{
-			"name": "cat_3_ske_json",
-			"type": "json",
-			"url": "assets/cat_3_ske.json"
-		},
-		{
-			"name": "cat_3_tex_json",
-			"type": "json",
-			"url": "assets/cat_3_tex.json"
-		},
-		{
 			"name": "背景切图_png",
 			"type": "image",
 			"url": "assets/背景切图.png"
@@ -195,6 +120,21 @@
 			"name": "house5_png",
 			"type": "image",
 			"url": "assets/house5.png"
+		},
+		{
+			"name": "猫的动画导入_3_tex_png",
+			"type": "image",
+			"url": "assets/猫的动画导入_3_tex.png"
+		},
+		{
+			"name": "cat_label_ske_json",
+			"type": "json",
+			"url": "assets/cat_label_ske.json"
+		},
+		{
+			"name": "cat_label_tex_json",
+			"type": "json",
+			"url": "assets/cat_label_tex.json"
 		}
 	]
 }
