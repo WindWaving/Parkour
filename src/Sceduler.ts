@@ -21,9 +21,10 @@ class Sceduler extends eui.UILayer {
 		// this.addChild(Sceduler.Grd);
 
 		Sceduler.Plyer = new Player();
+		this.addChild(Sceduler.Plyer);
 		//创建静态物
-		Sceduler.Sobjs = new StaticObjs();
-		this.addChild(Sceduler.Sobjs);
+		// Sceduler.Sobjs = new StaticObjs();
+		// this.addChild(Sceduler.Sobjs);
 		//添加金币
 		Sceduler.Cns = new Coins();
 		this.addChild(Sceduler.Cns);
@@ -31,7 +32,7 @@ class Sceduler extends eui.UILayer {
 		Sceduler.AttCns=new Tools("attract_coins_png");
 		this.addChild(Sceduler.AttCns);
 		//添加人物
-		this.addChild(Sceduler.Plyer);
+		
 		//创建怪物
 		Sceduler.Mons = new Monsters();
 		this.addChild(Sceduler.Mons);
@@ -40,7 +41,7 @@ class Sceduler extends eui.UILayer {
 		Sceduler.objLists.push(Sceduler.bkObj);
 		// Sceduler.objLists.push(Sceduler.Grd);
 		Sceduler.objLists.push(Sceduler.Plyer);
-		Sceduler.objLists.push(Sceduler.Sobjs);
+		// Sceduler.objLists.push(Sceduler.Sobjs);
 		Sceduler.objLists.push(Sceduler.Cns);
 		Sceduler.objLists.push(Sceduler.Mons);
 	}

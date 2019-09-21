@@ -5,10 +5,11 @@ class Monsters extends ArrSprites {
 		this.scaleW = 0.7;
 		this.scaleH = 0.7;
 		this.offsetX = 100;
-		this.randNum = 0.5;
-		this.tickNum = 50;
+		this.randNum = 0.7;
+		this.tickNum = 70;
 		this.types = 3;
 		this.maxLength = 3;
+
 
 		this.player = Sceduler.Plyer;
 	}
@@ -38,8 +39,8 @@ class Monsters extends ArrSprites {
 	}
 	gameOver() {
 		Sceduler.removeAll();
-		var self=this;
-		
+		var self = this;
+
 		setTimeout(function () {
 			var endUI = new EndGameUI();
 			self.parent.parent.addChild(endUI);

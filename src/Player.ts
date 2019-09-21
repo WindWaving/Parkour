@@ -13,6 +13,7 @@ class Player extends Sprites {
         this.scaleH=0.3;
         this.scaleW=0.3;
         this.scoreText = new egret.TextField();
+        this.baseHeight=1030;
     }
     onInit() {
         //创建dragonbones动画
@@ -30,7 +31,7 @@ class Player extends Sprites {
         this.ar.scaleX = this.scaleW;
         this.ar.scaleY = this.scaleH;
         this.ar.width *=this.scaleW;
-        this.ar.height *=this.scaleH;
+        this.ar.height =156;
         this.addChild(this.ar);
 
 
@@ -58,12 +59,12 @@ class Player extends Sprites {
         if (this.scores > 300) {
             this.stage.frameRate = 50;
         }
-    }
+    } 
 
     private onJump() {
-        this.ar.y = this.baseHeight - 250;
+        this.ar.y = this.baseHeight - 350;
         this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 4, 1);
-        this.aniState.timeScale=4;
+        this.aniState.timeScale=3;
         // this.ar.animation.
         this.baseHeight = 1030;
         this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);

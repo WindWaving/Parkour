@@ -1,5 +1,5 @@
 abstract class Sprites extends egret.DisplayObjectContainer {
-    baseHeight: number;//地面高度
+    baseHeight: number=1030;//地面高度
     spriteX: number;
     spriteY: number;
     path: string;

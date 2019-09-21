@@ -18,15 +18,12 @@ var Player = (function (_super) {
         _this.tickNum = 5;
         _this.scaleH = 0.3;
         _this.scaleW = 0.3;
-        // this.baseHeight=1030;
         _this.scoreText = new egret.TextField();
+        _this.baseHeight = 1030;
         return _this;
     }
     Player.prototype.onInit = function () {
         //创建dragonbones动画
-        // var dragonbonesData = RES.getRes("theElf_ske_json");
-        // var textureData = RES.getRes("theElf_tex_json");
-        // var texture = RES.getRes("theElf_tex_png");
         var dragonbonesData = RES.getRes("cat_label_ske_json");
         var textureData = RES.getRes("cat_label_tex_json");
         var texture = RES.getRes("cat_3_tex_png");
@@ -41,7 +38,7 @@ var Player = (function (_super) {
         this.ar.scaleX = this.scaleW;
         this.ar.scaleY = this.scaleH;
         this.ar.width *= this.scaleW;
-        this.ar.height *= this.scaleH;
+        this.ar.height = 156;
         this.addChild(this.ar);
         //播放动画
         this.ar.animation.play("run", 0);
@@ -68,9 +65,9 @@ var Player = (function (_super) {
         }
     };
     Player.prototype.onJump = function () {
-        this.ar.y = this.baseHeight - 250;
+        this.ar.y = this.baseHeight - 350;
         this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 4, 1);
-        this.aniState.timeScale = 4;
+        this.aniState.timeScale = 3;
         // this.ar.animation.
         this.baseHeight = 1030;
         this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);

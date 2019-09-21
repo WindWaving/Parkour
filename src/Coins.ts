@@ -7,10 +7,10 @@ class Coins extends ArrSprites {
 	private coinArr_1 = [];
 	private coinArr_2 = [];
 	private coinArr_3 = [];
-	private times_1=[];
-	private times_2=[];
-	private times_3=[];
-	
+	private times_1 = [];
+	private times_2 = [];
+	private times_3 = [];
+
 
 	private player: Player;
 	constructor() {
@@ -27,7 +27,7 @@ class Coins extends ArrSprites {
 		this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
 		var i = this.getRand(4, 1);
 		this.getType(i);
-		this.showCoins(this.coinArr_1,this.times_1);
+		this.showCoins(this.coinArr_1, this.times_1);
 		this.addEventListener(egret.Event.ENTER_FRAME, this.onMove, this);
 	}
 	public onMove() {
@@ -56,7 +56,7 @@ class Coins extends ArrSprites {
 			}
 			if (this.coinArr_1[this.coinArr_1.length - 1].x < -300) {
 				this.coinArr_1 = [];
-				this.times_1=[];
+				this.times_1 = [];
 			}
 		}
 		if (this.coinArr_2.length != 0) {
@@ -74,7 +74,7 @@ class Coins extends ArrSprites {
 			}
 			if (this.coinArr_2[this.coinArr_2.length - 1].x < -300) {
 				this.coinArr_2 = [];
-				this.times_2=[];
+				this.times_2 = [];
 			}
 		}
 		if (this.coinArr_3.length != 0) {
@@ -92,7 +92,7 @@ class Coins extends ArrSprites {
 			}
 			if (this.coinArr_3[this.coinArr_3.length - 1].x < -300) {
 				this.coinArr_3 = [];
-				this.times_3=[];
+				this.times_3 = [];
 			}
 		}
 
@@ -101,19 +101,19 @@ class Coins extends ArrSprites {
 			//添加新的金币
 			var n = this.getRand(4, 1);
 			this.getType(n);//选择json文件
-			this.showCoins(this.coinArr_1,this.times_1);
+			this.showCoins(this.coinArr_1, this.times_1);
 		}
 		else if (this.coinArr_2.length == 0 && Math.random() > this.randNum && this.ticker % this.tickNum == 0) {
 			//添加新的金币
 			var n = this.getRand(4, 1);
 			this.getType(n);//选择json文件
-			this.showCoins(this.coinArr_2,this.times_2);
+			this.showCoins(this.coinArr_2, this.times_2);
 		}
 		else if (this.coinArr_3.length == 0 && Math.random() > this.randNum && this.ticker % this.tickNum == 0) {
 			//添加新的金币
 			var n = this.getRand(4, 1);
 			this.getType(n);//选择json文件
-			this.showCoins(this.coinArr_3,this.times_3);
+			this.showCoins(this.coinArr_3, this.times_3);
 		}
 
 	}
@@ -139,9 +139,9 @@ class Coins extends ArrSprites {
 	}
 
 	//显示金币
-	private showCoins(arr = [],times=[]) {
+	private showCoins(arr = [], times = []) {
 		var startX = this.getRand(20, this.stage.stageWidth);
-		var startY = this.getRand(200, 150);
+		var startY = this.getRand(200, this.baseHeight-Sceduler.Plyer.ar.height-400);
 
 		var json = RES.getRes(this.coinjson);
 		var coinTexture = RES.getRes(this.path);

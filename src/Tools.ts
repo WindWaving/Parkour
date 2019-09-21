@@ -4,6 +4,10 @@ class Tools extends Sprites {
 	private bitmap: egret.Bitmap;
 	//道具持续时间
 	duration: number;
+	starttime: number;
+	nowtime: number;
+	isColDect: boolean = true;
+
 	public constructor(path: string) {
 		super();
 		this.coin = Sceduler.Cns;
@@ -11,9 +15,10 @@ class Tools extends Sprites {
 		this.tickNum = 0;
 		this.path = path;
 		this.speed = 10;
-		this.baseHeight = 900;
+		this.baseHeight = 1030;
 		this.scaleW = 0.4;
 		this.scaleH = 0.4;
+		this.duration = 10000;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
 	}
 	onInit(scaleW: any, scaleH: any, offsetX: number, offsetY: number) {
@@ -24,12 +29,24 @@ class Tools extends Sprites {
 	onMove() {
 		if (this.bitmap) {
 			//碰撞检测
-			if (CollisionDetect.hitTest(this.player.ar, this.bitmap)) {
-				this.coin.attractCoins();
-				console.log("工具获得");
+			if (this.isColDect) {
+				if (CollisionDetect.hitTest(this.player.ar, this.bitmap)) {
+					this.isColDect = false;
+					console.log("collide");
+					this.starttime = egret.getTimer();
+					// this.coin.attractCoins();
+				} else {
+					this.bitmap.x -= this.speed;
+				}
 			} else {
-				this.bitmap.x -= this.speed;
+				this.nowtime = egret.getTimer();
+				if (this.nowtime - this.starttime >= this.duration) {
+					this.endTiming();
+				} else {
+					this.coin.attractCoins();
+				}
 			}
+
 			if (this.bitmap.x < -this.bitmap.width) {
 				this.bitmap = null;
 				this.parent.removeChild(this);
@@ -40,11 +57,21 @@ class Tools extends Sprites {
 			var texture: egret.Texture = RES.getRes(this.path);
 			this.bitmap = new egret.Bitmap(texture);
 			this.addChild(this.bitmap);
+			//调整锚点
 			this.bitmap.width *= this.scaleW;
 			this.bitmap.height *= this.scaleH;
+			this.bitmap.anchorOffsetY = this.bitmap.height;
+			
 			this.bitmap.x = this.stage.stageWidth + 100;
-			this.bitmap.y = this.baseHeight - this.bitmap.height - 10;
+			this.bitmap.y = this.baseHeight-156;
+			console.log(this.bitmap.y);
 			this.tickNum = 1;
+		}
+	}
+
+	endTiming() {
+		if (this.parent) {
+			this.parent.removeChild(this);
 		}
 	}
 }

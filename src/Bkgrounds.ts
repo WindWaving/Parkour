@@ -13,6 +13,7 @@ class Bkgrounds extends Sprites {
         this.speed = 10;
         this.spriteY = 0;
         this.type=type;
+        
     }
     onInit() {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);

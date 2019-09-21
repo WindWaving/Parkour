@@ -1,5 +1,5 @@
 class BkObjs extends ArrSprites {
-	private lasthouse:number=1;
+	private lasthouse: number = 1;
 	constructor() {
 		super();
 		this.scaleW = 0.75;
@@ -11,7 +11,6 @@ class BkObjs extends ArrSprites {
 		this.types = 3;
 		this.maxLength = 10;
 		this.speed = 10;
-
 	}
 
 	onInit() {
@@ -29,16 +28,16 @@ class BkObjs extends ArrSprites {
 			this.getType(i);
 			var texture: egret.Texture = RES.getRes(this.path);
 			var houseBitmap = new egret.Bitmap(texture);
-			houseBitmap.width *=this.scaleW;
-			houseBitmap.height *=this.scaleH;
+			houseBitmap.width *= this.scaleW;
+			houseBitmap.height *= this.scaleH;
 			this.addChild(houseBitmap);
 			if (this.Arr.length == 0) {
 				houseBitmap.x = 0;
 			} else {
 				// houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.offsetX;
-				houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length-1].width-30;
+				houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length - 1].width - 30;
 			}
-			houseBitmap.y = this.baseHeight-houseBitmap.height;
+			houseBitmap.y = this.baseHeight - houseBitmap.height;
 			this.Arr.push(houseBitmap);
 		}
 	}

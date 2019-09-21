@@ -41,7 +41,7 @@ var ArrSprites = (function (_super) {
             }
             this.Arr[i].x -= this.speed;
             //删除超出界面的元素
-            if (this.Arr[0].x < -this.Arr[0].width && this.Arr[0]) {
+            if (this.Arr[0].x < -this.Arr[0].width - 20 && this.Arr[0]) {
                 this.Arr.splice(0, 1);
             }
         }

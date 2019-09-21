@@ -10,8 +10,8 @@ var CollisionDetect = (function () {
         point.x = obj2.x;
         point.y = obj2.y;
         var localpoint = obj1.globalToLocal(point.x, point.y);
+        // console.log(obj1.x,obj1.y,point.x,point.y,localpoint.x,localpoint.y);
         if (obj1.armature.getSlot('躯干_boundingBox').containsPoint(localpoint.x, localpoint.y) || obj1.armature.containsPoint(localpoint.x, localpoint.y + obj2.height)) {
-            console.log(point.x, point.y, point.y + obj2.height, obj1.y, obj1.height);
             return true;
         }
         if (obj1.armature.getSlot('躯干_boundingBox').containsPoint(localpoint.x + obj2.width, localpoint.y) || obj1.armature.containsPoint(localpoint.x + obj2.width, localpoint.y + obj2.height)) {

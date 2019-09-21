@@ -21,9 +21,10 @@ var Sceduler = (function (_super) {
         // Sceduler.Grd = new Bkgrounds("ground");
         // this.addChild(Sceduler.Grd);
         Sceduler.Plyer = new Player();
+        _this.addChild(Sceduler.Plyer);
         //创建静态物
-        Sceduler.Sobjs = new StaticObjs();
-        _this.addChild(Sceduler.Sobjs);
+        // Sceduler.Sobjs = new StaticObjs();
+        // this.addChild(Sceduler.Sobjs);
         //添加金币
         Sceduler.Cns = new Coins();
         _this.addChild(Sceduler.Cns);
@@ -31,7 +32,6 @@ var Sceduler = (function (_super) {
         Sceduler.AttCns = new Tools("attract_coins_png");
         _this.addChild(Sceduler.AttCns);
         //添加人物
-        _this.addChild(Sceduler.Plyer);
         //创建怪物
         Sceduler.Mons = new Monsters();
         _this.addChild(Sceduler.Mons);
@@ -39,7 +39,7 @@ var Sceduler = (function (_super) {
         Sceduler.objLists.push(Sceduler.bkObj);
         // Sceduler.objLists.push(Sceduler.Grd);
         Sceduler.objLists.push(Sceduler.Plyer);
-        Sceduler.objLists.push(Sceduler.Sobjs);
+        // Sceduler.objLists.push(Sceduler.Sobjs);
         Sceduler.objLists.push(Sceduler.Cns);
         Sceduler.objLists.push(Sceduler.Mons);
         return _this;

@@ -8,7 +8,6 @@ abstract class ArrSprites extends Sprites {
     types: number;
     constructor() {
         super();
-
     }
 
     onInit() {
@@ -31,7 +30,9 @@ abstract class ArrSprites extends Sprites {
     }
 
     onMove() {
+
         ++this.ticker;
+
         for (let i = 0; i < this.Arr.length; ++i) {
             //是否检测碰撞
             if (this.isDectColl(i)) {
@@ -39,7 +40,7 @@ abstract class ArrSprites extends Sprites {
             }
             this.Arr[i].x -= this.speed;
             //删除超出界面的元素
-            if (this.Arr[0].x < -this.Arr[0].width && this.Arr[0]) {
+            if (this.Arr[0].x < -this.Arr[0].width-20 && this.Arr[0]) {
                 this.Arr.splice(0, 1);
             }
         }

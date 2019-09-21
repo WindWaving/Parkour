@@ -146,7 +146,7 @@ var Coins = (function (_super) {
         if (arr === void 0) { arr = []; }
         if (times === void 0) { times = []; }
         var startX = this.getRand(20, this.stage.stageWidth);
-        var startY = this.getRand(200, 150);
+        var startY = this.getRand(200, this.baseHeight - Sceduler.Plyer.ar.height - 400);
         var json = RES.getRes(this.coinjson);
         var coinTexture = RES.getRes(this.path);
         for (var i = 0; i < json['Xnum']; ++i) {
