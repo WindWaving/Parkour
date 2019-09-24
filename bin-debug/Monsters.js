@@ -32,12 +32,12 @@ var Monsters = (function (_super) {
             case 2:
                 this.path = "monster_2_png";
                 this.offsetY = 0;
-                this.speed = 20;
+                this.speed = 15;
                 break;
             case 3:
                 this.path = "monster_1_png";
                 this.offsetY = 0;
-                this.speed = 40;
+                this.speed = 20;
                 break;
         }
     };

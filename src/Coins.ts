@@ -15,7 +15,8 @@ class Coins extends ArrSprites {
 	private player: Player;
 	constructor() {
 		super();
-		this.offsetX = 60;
+		this.offsetX = 100;
+		this.offsetY=60;
 		this.randNum = 0.5;
 		this.tickNum = 100;
 		this.speed = 10;
@@ -44,7 +45,7 @@ class Coins extends ArrSprites {
 		if (this.coinArr_1.length != 0) {
 			for (let i = 0; i < this.coinArr_1.length; ++i) {
 				this.coinArr_1[i].x -= this.speed;
-				if (CollisionDetect.isCollision(this.player.ar, this.coinArr_1[i])) {
+				if (CollisionDetect.hitTest(this.player.ar, this.coinArr_1[i])) {
 					if (this.coinArr_1[i].parent) {
 						this.coinArr_1[i].parent.removeChild(this.coinArr_1[i]);
 					}
@@ -54,7 +55,7 @@ class Coins extends ArrSprites {
 					++this.times_1[i];
 				}
 			}
-			if (this.coinArr_1[this.coinArr_1.length - 1].x < -300) {
+			if (this.coinArr_1[this.coinArr_1.length - 1].x < -400) {
 				this.coinArr_1 = [];
 				this.times_1 = [];
 			}
@@ -62,7 +63,7 @@ class Coins extends ArrSprites {
 		if (this.coinArr_2.length != 0) {
 			for (let i = 0; i < this.coinArr_2.length; ++i) {
 				this.coinArr_2[i].x -= this.speed;
-				if (CollisionDetect.isCollision(this.player.ar, this.coinArr_2[i])) {
+				if (CollisionDetect.hitTest(this.player.ar, this.coinArr_2[i])) {
 					if (this.coinArr_2[i].parent) {
 						this.coinArr_2[i].parent.removeChild(this.coinArr_2[i]);
 					}
@@ -72,7 +73,7 @@ class Coins extends ArrSprites {
 					++this.times_2[i];
 				}
 			}
-			if (this.coinArr_2[this.coinArr_2.length - 1].x < -300) {
+			if (this.coinArr_2[this.coinArr_2.length - 1].x < -400) {
 				this.coinArr_2 = [];
 				this.times_2 = [];
 			}
@@ -80,7 +81,7 @@ class Coins extends ArrSprites {
 		if (this.coinArr_3.length != 0) {
 			for (let i = 0; i < this.coinArr_3.length; ++i) {
 				this.coinArr_3[i].x -= this.speed;
-				if (CollisionDetect.isCollision(this.player.ar, this.coinArr_3[i])) {
+				if (CollisionDetect.hitTest(this.player.ar, this.coinArr_3[i])) {
 					if (this.coinArr_3[i].parent) {
 						this.coinArr_3[i].parent.removeChild(this.coinArr_3[i]);
 					}
@@ -90,7 +91,7 @@ class Coins extends ArrSprites {
 					++this.times_3[i];
 				}
 			}
-			if (this.coinArr_3[this.coinArr_3.length - 1].x < -300) {
+			if (this.coinArr_3[this.coinArr_3.length - 1].x < -400) {
 				this.coinArr_3 = [];
 				this.times_3 = [];
 			}
@@ -141,7 +142,7 @@ class Coins extends ArrSprites {
 	//显示金币
 	private showCoins(arr = [], times = []) {
 		var startX = this.getRand(20, this.stage.stageWidth);
-		var startY = this.getRand(200, this.baseHeight-Sceduler.Plyer.ar.height-400);
+		var startY = this.getRand(100, this.baseHeight-Sceduler.Plyer.ar.height-400);
 
 		var json = RES.getRes(this.coinjson);
 		var coinTexture = RES.getRes(this.path);
@@ -151,7 +152,7 @@ class Coins extends ArrSprites {
 				if (json.content[i][j] == "c") {
 					var coinBitmap = new egret.Bitmap(coinTexture);
 					coinBitmap.x = startX + j * this.offsetX + this.offsetX;
-					coinBitmap.y = startY + i * this.offsetX + this.offsetX;
+					coinBitmap.y = startY + i * this.offsetY + this.offsetY;
 					arr.push(coinBitmap);
 					times.push(0);
 					this.addChild(coinBitmap);
@@ -167,7 +168,7 @@ class Coins extends ArrSprites {
 			if (this.coinArr_1[0].x < this.player.ar.x + this.player.ar.width + 300 && this.coinArr_1[0].x >= this.player.ar.x) {
 				for (let i in this.coinArr_1) {
 					this.coinArr_1[i].x -= this.speed * 2;
-					this.coinArr_1[i].y -= (this.coinArr_1[i].y - this.player.ar.y) / 5;
+					this.coinArr_1[i].y -= (this.coinArr_1[i].y - this.player.ar.y) / 15;
 					if (CollisionDetect.isCollision(this.player.ar, this.coinArr_1[i])) {
 						if (this.coinArr_1[i].parent) {
 							this.coinArr_1[i].parent.removeChild(this.coinArr_1[i]);
@@ -176,7 +177,7 @@ class Coins extends ArrSprites {
 							++this.cnts;
 						}
 						++this.times_1[i];
-					}
+					}					
 				}
 			}
 

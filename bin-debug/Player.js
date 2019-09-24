@@ -24,8 +24,8 @@ var Player = (function (_super) {
     }
     Player.prototype.onInit = function () {
         //创建dragonbones动画
-        var dragonbonesData = RES.getRes("cat_label_ske_json");
-        var textureData = RES.getRes("cat_label_tex_json");
+        var dragonbonesData = RES.getRes("cat_ani_ske_json");
+        var textureData = RES.getRes("cat_ani_tex_json");
         var texture = RES.getRes("cat_3_tex_png");
         var dragonbonesFactory = new dragonBones.EgretFactory();
         dragonbonesFactory.parseDragonBonesData(dragonbonesData);
@@ -43,7 +43,7 @@ var Player = (function (_super) {
         //播放动画
         this.ar.animation.play("run", 0);
         // this.ar.animation.play("run2_slow", 0);
-        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJump, this);
+        this.parent.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJump, this);
         this.addEventListener(egret.Event.ENTER_FRAME, this.onMove, this);
     };
     Player.prototype.onMove = function () {
@@ -65,12 +65,20 @@ var Player = (function (_super) {
         }
     };
     Player.prototype.onJump = function () {
-        this.ar.y = this.baseHeight - 350;
-        this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 4, 1);
-        this.aniState.timeScale = 3;
-        // this.ar.animation.
-        this.baseHeight = 1030;
-        this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);
+        try {
+            if (!this.ar.animation.getState('run').isPlaying) {
+            }
+            else {
+                this.ar.y = this.baseHeight - 100;
+                this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 9, 1);
+                this.aniState.timeScale = 2;
+                this.baseHeight = 1030;
+                this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
     };
     Player.prototype.reRun = function () {
         this.ar.y = this.baseHeight;

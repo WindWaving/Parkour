@@ -21,7 +21,8 @@ var Coins = (function (_super) {
         _this.times_1 = [];
         _this.times_2 = [];
         _this.times_3 = [];
-        _this.offsetX = 60;
+        _this.offsetX = 100;
+        _this.offsetY = 60;
         _this.randNum = 0.5;
         _this.tickNum = 100;
         _this.speed = 10;
@@ -50,7 +51,7 @@ var Coins = (function (_super) {
         if (this.coinArr_1.length != 0) {
             for (var i = 0; i < this.coinArr_1.length; ++i) {
                 this.coinArr_1[i].x -= this.speed;
-                if (CollisionDetect.isCollision(this.player.ar, this.coinArr_1[i])) {
+                if (CollisionDetect.hitTest(this.player.ar, this.coinArr_1[i])) {
                     if (this.coinArr_1[i].parent) {
                         this.coinArr_1[i].parent.removeChild(this.coinArr_1[i]);
                     }
@@ -60,7 +61,7 @@ var Coins = (function (_super) {
                     ++this.times_1[i];
                 }
             }
-            if (this.coinArr_1[this.coinArr_1.length - 1].x < -300) {
+            if (this.coinArr_1[this.coinArr_1.length - 1].x < -400) {
                 this.coinArr_1 = [];
                 this.times_1 = [];
             }
@@ -68,7 +69,7 @@ var Coins = (function (_super) {
         if (this.coinArr_2.length != 0) {
             for (var i = 0; i < this.coinArr_2.length; ++i) {
                 this.coinArr_2[i].x -= this.speed;
-                if (CollisionDetect.isCollision(this.player.ar, this.coinArr_2[i])) {
+                if (CollisionDetect.hitTest(this.player.ar, this.coinArr_2[i])) {
                     if (this.coinArr_2[i].parent) {
                         this.coinArr_2[i].parent.removeChild(this.coinArr_2[i]);
                     }
@@ -78,7 +79,7 @@ var Coins = (function (_super) {
                     ++this.times_2[i];
                 }
             }
-            if (this.coinArr_2[this.coinArr_2.length - 1].x < -300) {
+            if (this.coinArr_2[this.coinArr_2.length - 1].x < -400) {
                 this.coinArr_2 = [];
                 this.times_2 = [];
             }
@@ -86,7 +87,7 @@ var Coins = (function (_super) {
         if (this.coinArr_3.length != 0) {
             for (var i = 0; i < this.coinArr_3.length; ++i) {
                 this.coinArr_3[i].x -= this.speed;
-                if (CollisionDetect.isCollision(this.player.ar, this.coinArr_3[i])) {
+                if (CollisionDetect.hitTest(this.player.ar, this.coinArr_3[i])) {
                     if (this.coinArr_3[i].parent) {
                         this.coinArr_3[i].parent.removeChild(this.coinArr_3[i]);
                     }
@@ -96,7 +97,7 @@ var Coins = (function (_super) {
                     ++this.times_3[i];
                 }
             }
-            if (this.coinArr_3[this.coinArr_3.length - 1].x < -300) {
+            if (this.coinArr_3[this.coinArr_3.length - 1].x < -400) {
                 this.coinArr_3 = [];
                 this.times_3 = [];
             }
@@ -146,7 +147,7 @@ var Coins = (function (_super) {
         if (arr === void 0) { arr = []; }
         if (times === void 0) { times = []; }
         var startX = this.getRand(20, this.stage.stageWidth);
-        var startY = this.getRand(200, this.baseHeight - Sceduler.Plyer.ar.height - 400);
+        var startY = this.getRand(100, this.baseHeight - Sceduler.Plyer.ar.height - 400);
         var json = RES.getRes(this.coinjson);
         var coinTexture = RES.getRes(this.path);
         for (var i = 0; i < json['Xnum']; ++i) {
@@ -154,7 +155,7 @@ var Coins = (function (_super) {
                 if (json.content[i][j] == "c") {
                     var coinBitmap = new egret.Bitmap(coinTexture);
                     coinBitmap.x = startX + j * this.offsetX + this.offsetX;
-                    coinBitmap.y = startY + i * this.offsetX + this.offsetX;
+                    coinBitmap.y = startY + i * this.offsetY + this.offsetY;
                     arr.push(coinBitmap);
                     times.push(0);
                     this.addChild(coinBitmap);
@@ -169,7 +170,7 @@ var Coins = (function (_super) {
             if (this.coinArr_1[0].x < this.player.ar.x + this.player.ar.width + 300 && this.coinArr_1[0].x >= this.player.ar.x) {
                 for (var i in this.coinArr_1) {
                     this.coinArr_1[i].x -= this.speed * 2;
-                    this.coinArr_1[i].y -= (this.coinArr_1[i].y - this.player.ar.y) / 5;
+                    this.coinArr_1[i].y -= (this.coinArr_1[i].y - this.player.ar.y) / 15;
                     if (CollisionDetect.isCollision(this.player.ar, this.coinArr_1[i])) {
                         if (this.coinArr_1[i].parent) {
                             this.coinArr_1[i].parent.removeChild(this.coinArr_1[i]);

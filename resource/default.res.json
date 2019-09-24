@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,coins_two_json,money_small_png,monster_1_png,monster_2_png,monster_3_png,stone_png,coins_four_json,coins_one_json,coins_three_json,StartUI_jpg,startBtn_png,EndGame_jpg,butns_png,butns_down_png,attract_coins_png,cat_3_tex_png,背景切图_png,house_png,house2_png,house3_png,house4_png,house5_png,猫的动画导入_3_tex_png,cat_label_ske_json,cat_label_tex_json",
+			"keys": "description_json,coins_two_json,money_small_png,monster_1_png,monster_2_png,monster_3_png,stone_png,coins_four_json,coins_one_json,coins_three_json,StartUI_jpg,startBtn_png,EndGame_jpg,butns_png,butns_down_png,attract_coins_png,cat_3_tex_png,背景切图_png,house_png,house2_png,house3_png,house4_png,house5_png,猫的动画导入_3_tex_png,cat_label_ske_json,cat_label_tex_json,cat_ani_tex_json,cat_ani_tex_png,cat_ani_ske_json",
 			"name": "preload"
 		}
 	],
@@ -135,6 +135,21 @@
 			"name": "cat_label_tex_json",
 			"type": "json",
 			"url": "assets/cat_label_tex.json"
+		},
+		{
+			"name": "cat_ani_tex_json",
+			"type": "json",
+			"url": "assets/cat_ani_tex.json"
+		},
+		{
+			"name": "cat_ani_tex_png",
+			"type": "image",
+			"url": "assets/cat_ani_tex.png"
+		},
+		{
+			"name": "cat_ani_ske_json",
+			"type": "json",
+			"url": "assets/cat_ani_ske.json"
 		}
 	]
 }

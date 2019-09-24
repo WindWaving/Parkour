@@ -10,15 +10,15 @@ class Player extends Sprites {
         super();
         this.ticker = 0;
         this.tickNum = 5;
-        this.scaleH=0.3;
-        this.scaleW=0.3;
+        this.scaleH = 0.3;
+        this.scaleW = 0.3;
         this.scoreText = new egret.TextField();
-        this.baseHeight=1030;
+        this.baseHeight = 1030;
     }
     onInit() {
         //创建dragonbones动画
-        var dragonbonesData = RES.getRes("cat_label_ske_json");
-        var textureData = RES.getRes("cat_label_tex_json");
+        var dragonbonesData = RES.getRes("cat_ani_ske_json");
+        var textureData = RES.getRes("cat_ani_tex_json");
         var texture = RES.getRes("cat_3_tex_png");
         var dragonbonesFactory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
         dragonbonesFactory.parseDragonBonesData(dragonbonesData);
@@ -30,16 +30,16 @@ class Player extends Sprites {
         this.y = 0;
         this.ar.scaleX = this.scaleW;
         this.ar.scaleY = this.scaleH;
-        this.ar.width *=this.scaleW;
-        this.ar.height =156;
+        this.ar.width *= this.scaleW;
+        this.ar.height = 156;
         this.addChild(this.ar);
 
 
         //播放动画
-        this.ar.animation.play("run",0);
-        
+        this.ar.animation.play("run", 0);
+
         // this.ar.animation.play("run2_slow", 0);
-        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJump, this);
+        this.parent.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onJump, this);
         this.addEventListener(egret.Event.ENTER_FRAME, this.onMove, this);
     }
     onMove() {
@@ -59,15 +59,24 @@ class Player extends Sprites {
         if (this.scores > 300) {
             this.stage.frameRate = 50;
         }
-    } 
+    }
 
     private onJump() {
-        this.ar.y = this.baseHeight - 350;
-        this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 4, 1);
-        this.aniState.timeScale=3;
-        // this.ar.animation.
-        this.baseHeight = 1030;
-        this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);
+        try {
+            if (!this.ar.animation.getState('run').isPlaying) {
+            } else {
+                this.ar.y = this.baseHeight - 100;
+                this.aniState = this.ar.animation.gotoAndPlayByFrame("jump", 9, 1);
+                this.aniState.timeScale = 2;               
+                this.baseHeight = 1030;
+                this.ar.addEventListener(dragonBones.AnimationEvent.COMPLETE, this.reRun, this);
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+
+
     }
 
     public reRun() {

@@ -15,7 +15,6 @@ var CollisionDetect = (function () {
             return true;
         }
         if (obj1.armature.getSlot('躯干_boundingBox').containsPoint(localpoint.x + obj2.width, localpoint.y) || obj1.armature.containsPoint(localpoint.x + obj2.width, localpoint.y + obj2.height)) {
-            //     console.log(point.x,point.y,point.y + obj2.width);                
             return true;
         }
         return false;
