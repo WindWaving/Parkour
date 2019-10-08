@@ -18,7 +18,7 @@ class Tools extends Sprites {
 		this.baseHeight = 1030;
 		this.scaleW = 0.4;
 		this.scaleH = 0.4;
-		this.duration = 10000;
+		this.duration = 30000;
 		this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
 	}
 	onInit(scaleW: any, scaleH: any, offsetX: number, offsetY: number) {

@@ -61,7 +61,7 @@ var Player = (function (_super) {
             this.stage.frameRate = 40;
         }
         if (this.scores > 300) {
-            this.stage.frameRate = 50;
+            this.stage.frameRate = 60;
         }
     };
     Player.prototype.onJump = function () {

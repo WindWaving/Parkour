@@ -57,7 +57,7 @@ class Player extends Sprites {
             this.stage.frameRate = 40;
         }
         if (this.scores > 300) {
-            this.stage.frameRate = 50;
+            this.stage.frameRate = 60;
         }
     }
 

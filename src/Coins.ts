@@ -16,7 +16,7 @@ class Coins extends ArrSprites {
 	constructor() {
 		super();
 		this.offsetX = 100;
-		this.offsetY=60;
+		this.offsetY = 60;
 		this.randNum = 0.5;
 		this.tickNum = 100;
 		this.speed = 10;
@@ -142,13 +142,13 @@ class Coins extends ArrSprites {
 	//显示金币
 	private showCoins(arr = [], times = []) {
 		var startX = this.getRand(20, this.stage.stageWidth);
-		var startY = this.getRand(100, this.baseHeight-Sceduler.Plyer.ar.height-400);
+		var startY = this.getRand(100, this.baseHeight - Sceduler.Plyer.ar.height - 400);
 
 		var json = RES.getRes(this.coinjson);
 		var coinTexture = RES.getRes(this.path);
 
-		for (var i: number = 0; i < json['Xnum']; ++i) {
-			for (var j: number = 0; j < json['Ynum']; ++j) {
+		for (var j: number = 0; j < json['Ynum']; ++j) {
+			for (var i: number = 0; i < json['Xnum']; ++i) {
 				if (json.content[i][j] == "c") {
 					var coinBitmap = new egret.Bitmap(coinTexture);
 					coinBitmap.x = startX + j * this.offsetX + this.offsetX;
@@ -161,60 +161,38 @@ class Coins extends ArrSprites {
 		}
 	}
 
-	//自动吸引金币
-	public attractCoins() {
-		//计算金币自动落下的速度
-		if (this.coinArr_1.length != 0) {
-			if (this.coinArr_1[0].x < this.player.ar.x + this.player.ar.width + 300 && this.coinArr_1[0].x >= this.player.ar.x) {
-				for (let i in this.coinArr_1) {
-					this.coinArr_1[i].x -= this.speed * 2;
-					this.coinArr_1[i].y -= (this.coinArr_1[i].y - this.player.ar.y) / 15;
-					if (CollisionDetect.isCollision(this.player.ar, this.coinArr_1[i])) {
-						if (this.coinArr_1[i].parent) {
-							this.coinArr_1[i].parent.removeChild(this.coinArr_1[i]);
+	//道具吸引金币自动下落
+	public CoinAttrDown(arr, times) {
+		if (arr.length != 0 && arr[arr.length - 1].x > this.player.ar.x + this.player.ar.width) {
+			// if (arr[0].x < this.player.ar.x + this.player.ar.width + 300 && arr[0].x >= this.player.ar.x) {
+			for (let i in arr) {
+				//金币单个吸引的效果
+				if (arr[i].x < this.player.ar.x + this.player.ar.width + 300) {
+					//计算金币自动落下的速度
+					arr[i].x -= this.speed * 2.5;
+					arr[i].y += (this.player.ar.y - arr[i].y - this.player.ar.height / 2) / 5;
+					if (arr[i].x < this.player.ar.x + this.player.ar.width || arr[i].y >= this.player.ar.y || CollisionDetect.isCollision(this.player.ar, arr[i])) {
+						if (arr[i].parent) {
+							arr[i].parent.removeChild(arr[i]);
 						}
-						if (this.times_1[i] == 0) {
+						if (times[i] == 0) {
 							++this.cnts;
 						}
 						++this.times_1[i];
-					}					
+						// arr.splice(i, 1);
+						// times.splice(i, 1);
+					}
 				}
+
 			}
 
 		}
-		if (this.coinArr_2.length != 0) {
-			if (this.coinArr_2[0].x < this.player.ar.x + this.player.ar.width + 300 && this.coinArr_2[0].x >= this.player.ar.x) {
-				for (let i in this.coinArr_2) {
-					this.coinArr_2[i].x -= this.speed * 2;
-					this.coinArr_2[i].y -= (this.coinArr_2[i].y - this.player.ar.y) / 5;
-					if (CollisionDetect.isCollision(this.player.ar, this.coinArr_2[i])) {
-						if (this.coinArr_2[i].parent) {
-							this.coinArr_2[i].parent.removeChild(this.coinArr_2[i]);
-						}
-						if (this.times_2[i] == 0) {
-							++this.cnts;
-						}
-						++this.times_2[i];
-					}
-				}
-			}
-		}
-		if (this.coinArr_3.length != 0) {
-			if (this.coinArr_3[0].x < this.player.ar.x + this.player.ar.width + 300 && this.coinArr_3[0].x >= this.player.ar.x) {
-				for (let i in this.coinArr_3) {
-					this.coinArr_3[i].x -= this.speed * 2;
-					this.coinArr_3[i].y -= (this.coinArr_3[i].y - this.player.ar.y) / 5;
-					if (CollisionDetect.isCollision(this.player.ar, this.coinArr_3[i])) {
-						if (this.coinArr_3[i].parent) {
-							this.coinArr_3[i].parent.removeChild(this.coinArr_3[i]);
-						}
-						if (this.times_3[i] == 0) {
-							++this.cnts;
-						}
-						++this.times_3[i];
-					}
-				}
-			}
-		}
+	}
+	//自动吸引金币
+	public attractCoins() {
+		this.CoinAttrDown(this.coinArr_1, this.times_1);
+		this.CoinAttrDown(this.coinArr_2, this.times_2);
+		this.CoinAttrDown(this.coinArr_3, this.times_3);
+
 	}
 }

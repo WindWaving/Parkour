@@ -17,8 +17,6 @@ class Sceduler extends eui.UILayer {
 		//创建背景上的图片
 		Sceduler.bkObj = new BkObjs();
 		this.addChild(Sceduler.bkObj);
-		// Sceduler.Grd = new Bkgrounds("ground");
-		// this.addChild(Sceduler.Grd);
 
 		Sceduler.Plyer = new Player();
 		this.addChild(Sceduler.Plyer);

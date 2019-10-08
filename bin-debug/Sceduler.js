@@ -18,8 +18,6 @@ var Sceduler = (function (_super) {
         //创建背景上的图片
         Sceduler.bkObj = new BkObjs();
         _this.addChild(Sceduler.bkObj);
-        // Sceduler.Grd = new Bkgrounds("ground");
-        // this.addChild(Sceduler.Grd);
         Sceduler.Plyer = new Player();
         _this.addChild(Sceduler.Plyer);
         //创建静态物

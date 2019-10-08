@@ -21,7 +21,7 @@ var Tools = (function (_super) {
         _this.baseHeight = 1030;
         _this.scaleW = 0.4;
         _this.scaleH = 0.4;
-        _this.duration = 10000;
+        _this.duration = 30000;
         _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onInit, _this);
         return _this;
     }
