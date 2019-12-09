@@ -23,6 +23,16 @@
     },
     {
       "name": "promise"
+    },
+    {
+      "name":"physics",
+      "path":"libs/physics"
     }
-  ]
+  ],
+  "targets": {
+    "android": {
+      "appname": "ParkourCat",
+      "packagename": "com.companyname"
+    }
+  }
 }

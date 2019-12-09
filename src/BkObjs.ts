@@ -10,7 +10,7 @@ class BkObjs extends ArrSprites {
 		this.tickNum = 1;
 		this.types = 3;
 		this.maxLength = 10;
-		this.speed = 10;
+		this.speed = 12;
 	}
 
 	onInit() {
@@ -30,14 +30,15 @@ class BkObjs extends ArrSprites {
 			var houseBitmap = new egret.Bitmap(texture);
 			houseBitmap.width *= this.scaleW;
 			houseBitmap.height *= this.scaleH;
+			houseBitmap.anchorOffsetY=houseBitmap.height;
 			this.addChild(houseBitmap);
 			if (this.Arr.length == 0) {
 				houseBitmap.x = 0;
 			} else {
-				// houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.offsetX;
-				houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length - 1].width - 30;
+				houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length - 1].width - 50;
 			}
-			houseBitmap.y = this.baseHeight - houseBitmap.height;
+			// houseBitmap.y = this.baseHeight;
+			houseBitmap.y=this.baseHeight;
 			this.Arr.push(houseBitmap);
 		}
 	}

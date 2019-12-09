@@ -2,7 +2,7 @@ class Coins extends ArrSprites {
 	private coinjson: string;
 	//获得的金币数量
 	public cnts: number = 0;
-	private coinText: egret.TextField;
+	// private coinText: egret.TextField;
 	//金币数组
 	private coinArr_1 = [];
 	private coinArr_2 = [];
@@ -21,7 +21,7 @@ class Coins extends ArrSprites {
 		this.tickNum = 100;
 		this.speed = 10;
 		this.path = "money_small_png";
-		this.coinText = new egret.TextField();
+		Sceduler.coinText = new egret.TextField();
 		this.player = Sceduler.Plyer;
 	}
 	onInit() {
@@ -33,12 +33,12 @@ class Coins extends ArrSprites {
 	}
 	public onMove() {
 		//显示获取金币数量
-		this.coinText.text = "金币数量：" + this.cnts.toString() + " 个";
-		this.addChild(this.coinText);
-		this.coinText.x = 100;
-		this.coinText.y = 150;
-		this.coinText.size = 50;
-		this.coinText.textColor = 0x000;
+		Sceduler.coinText.text = "金币数量：" + this.cnts.toString() + " 个";
+		this.addChild(Sceduler.coinText);
+		Sceduler.coinText.x = 100;
+		Sceduler.coinText.y = 150;
+		Sceduler.coinText.size = 50;
+		Sceduler.coinText.textColor = 0x000;
 		++this.ticker;
 
 		//移动金币

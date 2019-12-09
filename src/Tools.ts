@@ -15,7 +15,6 @@ class Tools extends Sprites {
 		this.tickNum = 0;
 		this.path = path;
 		this.speed = 10;
-		this.baseHeight = 1030;
 		this.scaleW = 0.4;
 		this.scaleH = 0.4;
 		this.duration = 30000;

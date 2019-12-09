@@ -70,7 +70,7 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
-
+        
         var strtUI = new StartGameUI();
         this.addChild(strtUI);
     }

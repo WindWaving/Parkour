@@ -18,7 +18,6 @@ var Tools = (function (_super) {
         _this.tickNum = 0;
         _this.path = path;
         _this.speed = 10;
-        _this.baseHeight = 1030;
         _this.scaleW = 0.4;
         _this.scaleH = 0.4;
         _this.duration = 30000;

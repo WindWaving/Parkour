@@ -7,13 +7,15 @@ class Bkgrounds extends Sprites {
     //纹理数组长度
     private Snum: number;
     //纹理类型
-    private type:string;
-    constructor(type:string) {
+    private type: string;
+    // private flag: number;
+    constructor() {
         super();
         this.speed = 10;
         this.spriteY = 0;
-        this.type=type;
-        
+        this.type = "background";
+        // this.flag = flag;
+
     }
     onInit() {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
@@ -21,16 +23,20 @@ class Bkgrounds extends Sprites {
         var texture: egret.Texture = RES.getRes(this.path);
         this.Twidth = texture.textureWidth;
         // this.Snum = Math.ceil(this.stage.stageWidth / this.Twidth) + 2;
-        this.Snum=2;
+        this.Snum = 2;
         //数组初始化
         for (var i: number = 0; i < this.Snum; ++i) {
             var bitmap: egret.Bitmap = new egret.Bitmap(texture);
-            bitmap.x = this.Twidth * i;
+            bitmap.x = this.Twidth * i-10;
+            // if (this.flag == -1) {
+            //     // bitmap.anchorOffsetX=bitmap.width/2;
+            //     // bitmap.anchorOffsetY=bitmap.height/2;
+            //     bitmap.skewX=180;
+            //     this.spriteY = 10;
+            // }
+            // bitmap.anchorOffsetY=bitmap.height;
             bitmap.y = this.spriteY;
-            if (this.type == "background") {
-                bitmap.height = this.stage.stageHeight;
-                // console.log("adjust height",bitmap.height);
-            }
+            bitmap.height = this.stage.stageHeight;
             this.bkgArr.push(bitmap);
             this.addChild(bitmap);
         }
@@ -48,12 +54,12 @@ class Bkgrounds extends Sprites {
     }
     getType(i: string) {
         switch (i) {
-            case "ground":
-                this.path = "loadingbk_png";
-                this.spriteY = 900;
-                break;
+            // case "ground":
+            //     this.path = "ground_jpg";
+            //     this.spriteY = this.baseHeight;
+            //     break;
             case "background":
-                this.path = "背景切图_png";
+                this.path = "background_png";
                 this.spriteY = 0;
                 break;
         }

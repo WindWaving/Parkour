@@ -14,6 +14,7 @@ var Coins = (function (_super) {
         var _this = _super.call(this) || this;
         //获得的金币数量
         _this.cnts = 0;
+        // private coinText: egret.TextField;
         //金币数组
         _this.coinArr_1 = [];
         _this.coinArr_2 = [];
@@ -27,7 +28,7 @@ var Coins = (function (_super) {
         _this.tickNum = 100;
         _this.speed = 10;
         _this.path = "money_small_png";
-        _this.coinText = new egret.TextField();
+        Sceduler.coinText = new egret.TextField();
         _this.player = Sceduler.Plyer;
         return _this;
     }
@@ -40,12 +41,12 @@ var Coins = (function (_super) {
     };
     Coins.prototype.onMove = function () {
         //显示获取金币数量
-        this.coinText.text = "金币数量：" + this.cnts.toString() + " 个";
-        this.addChild(this.coinText);
-        this.coinText.x = 100;
-        this.coinText.y = 150;
-        this.coinText.size = 50;
-        this.coinText.textColor = 0x000;
+        Sceduler.coinText.text = "金币数量：" + this.cnts.toString() + " 个";
+        this.addChild(Sceduler.coinText);
+        Sceduler.coinText.x = 100;
+        Sceduler.coinText.y = 150;
+        Sceduler.coinText.size = 50;
+        Sceduler.coinText.textColor = 0x000;
         ++this.ticker;
         //移动金币
         if (this.coinArr_1.length != 0) {

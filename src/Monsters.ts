@@ -34,8 +34,8 @@ class Monsters extends ArrSprites {
 		}
 	}
 	isDectColl(i: number) {
-		return false;
-		// return CollisionDetect.hitTest(this.player.ar, this.Arr[i]);
+		// return false;
+		return CollisionDetect.hitTest(this.player.ar, this.Arr[i]);
 	}
 	gameOver() {
 		Sceduler.removeAll();

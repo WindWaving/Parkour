@@ -11,14 +11,16 @@ r.prototype = e.prototype, t.prototype = new r();
 // TypeScript file
 var Bkgrounds = (function (_super) {
     __extends(Bkgrounds, _super);
-    function Bkgrounds(type) {
+    // private flag: number;
+    function Bkgrounds() {
         var _this = _super.call(this) || this;
         //纹理数组
         _this.bkgArr = [];
         _this.speed = 10;
         _this.spriteY = 0;
-        _this.type = type;
+        _this.type = "background";
         return _this;
+        // this.flag = flag;
     }
     Bkgrounds.prototype.onInit = function () {
         this.removeEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
@@ -30,12 +32,16 @@ var Bkgrounds = (function (_super) {
         //数组初始化
         for (var i = 0; i < this.Snum; ++i) {
             var bitmap = new egret.Bitmap(texture);
-            bitmap.x = this.Twidth * i;
+            bitmap.x = this.Twidth * i - 10;
+            // if (this.flag == -1) {
+            //     // bitmap.anchorOffsetX=bitmap.width/2;
+            //     // bitmap.anchorOffsetY=bitmap.height/2;
+            //     bitmap.skewX=180;
+            //     this.spriteY = 10;
+            // }
+            // bitmap.anchorOffsetY=bitmap.height;
             bitmap.y = this.spriteY;
-            if (this.type == "background") {
-                bitmap.height = this.stage.stageHeight;
-                // console.log("adjust height",bitmap.height);
-            }
+            bitmap.height = this.stage.stageHeight;
             this.bkgArr.push(bitmap);
             this.addChild(bitmap);
         }
@@ -53,12 +59,12 @@ var Bkgrounds = (function (_super) {
     };
     Bkgrounds.prototype.getType = function (i) {
         switch (i) {
-            case "ground":
-                this.path = "loadingbk_png";
-                this.spriteY = 900;
-                break;
+            // case "ground":
+            //     this.path = "ground_jpg";
+            //     this.spriteY = this.baseHeight;
+            //     break;
             case "background":
-                this.path = "背景切图_png";
+                this.path = "background_png";
                 this.spriteY = 0;
                 break;
         }

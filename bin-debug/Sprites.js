@@ -13,7 +13,6 @@ var Sprites = (function (_super) {
     function Sprites() {
         var _this = _super.call(this) || this;
         _this.baseHeight = 1030; //地面高度
-        _this.baseHeight = 1030;
         _this.ticker = 0;
         _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.onInit, _this);
         return _this;

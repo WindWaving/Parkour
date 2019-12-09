@@ -42,8 +42,8 @@ var Monsters = (function (_super) {
         }
     };
     Monsters.prototype.isDectColl = function (i) {
-        return false;
-        // return CollisionDetect.hitTest(this.player.ar, this.Arr[i]);
+        // return false;
+        return CollisionDetect.hitTest(this.player.ar, this.Arr[i]);
     };
     Monsters.prototype.gameOver = function () {
         Sceduler.removeAll();

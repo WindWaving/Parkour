@@ -12,12 +12,15 @@ var Sceduler = (function (_super) {
     __extends(Sceduler, _super);
     function Sceduler() {
         var _this = _super.call(this) || this;
-        //创建背景和地面
-        Sceduler.bkG = new Bkgrounds("background");
+        //创建背景
+        Sceduler.bkG = new Bkgrounds();
         _this.addChild(Sceduler.bkG);
         //创建背景上的图片
         Sceduler.bkObj = new BkObjs();
         _this.addChild(Sceduler.bkObj);
+        //创建地面
+        // Sceduler.grd=new Bkgrounds("ground",0);
+        // this.addChild(Sceduler.grd);
         Sceduler.Plyer = new Player();
         _this.addChild(Sceduler.Plyer);
         //创建静态物
@@ -34,8 +37,9 @@ var Sceduler = (function (_super) {
         Sceduler.Mons = new Monsters();
         _this.addChild(Sceduler.Mons);
         Sceduler.objLists.push(Sceduler.bkG);
+        // Sceduler.objLists.push(Sceduler.bkg2);
+        // Sceduler.objLists.push(Sceduler.grd);
         Sceduler.objLists.push(Sceduler.bkObj);
-        // Sceduler.objLists.push(Sceduler.Grd);
         Sceduler.objLists.push(Sceduler.Plyer);
         // Sceduler.objLists.push(Sceduler.Sobjs);
         Sceduler.objLists.push(Sceduler.Cns);

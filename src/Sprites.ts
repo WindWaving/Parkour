@@ -11,7 +11,6 @@ abstract class Sprites extends egret.DisplayObjectContainer {
 
     constructor() {
         super();
-        this.baseHeight = 1030;
         this.ticker = 0;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onInit, this);
     }

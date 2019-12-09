@@ -21,7 +21,7 @@ var BkObjs = (function (_super) {
         _this.tickNum = 1;
         _this.types = 3;
         _this.maxLength = 10;
-        _this.speed = 10;
+        _this.speed = 12;
         return _this;
     }
     BkObjs.prototype.onInit = function () {
@@ -40,15 +40,16 @@ var BkObjs = (function (_super) {
             var houseBitmap = new egret.Bitmap(texture);
             houseBitmap.width *= this.scaleW;
             houseBitmap.height *= this.scaleH;
+            houseBitmap.anchorOffsetY = houseBitmap.height;
             this.addChild(houseBitmap);
             if (this.Arr.length == 0) {
                 houseBitmap.x = 0;
             }
             else {
-                // houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.offsetX;
-                houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length - 1].width - 30;
+                houseBitmap.x = this.Arr[this.Arr.length - 1].x + this.Arr[this.Arr.length - 1].width - 50 + Math.floor(Math.random() * 200);
             }
-            houseBitmap.y = this.baseHeight - houseBitmap.height;
+            // houseBitmap.y = this.baseHeight;
+            houseBitmap.y = this.baseHeight;
             this.Arr.push(houseBitmap);
         }
     };
